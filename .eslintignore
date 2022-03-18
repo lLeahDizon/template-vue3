@@ -1,0 +1,13 @@
+*.sh
+node_modules
+*.md
+*.scss
+*.woff
+*.ttf
+.vscode
+.idea
+dist
+public
+index.html
+src/assets
+.eslintrc.js

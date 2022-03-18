@@ -1,0 +1,22 @@
+name: Unit Test
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Branch
+        uses: actions/checkout@v2
+        with:
+          ref: 'Dev_build_20220212'
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+      - name: Test
+        run: yarn test -- --coverage
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: true
